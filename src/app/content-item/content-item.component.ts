@@ -35,6 +35,12 @@ export class ContentItemComponent implements OnInit{
 
   ngOnInit(): void {
     //This lifecycle hook is a good place to fetch and init our data
-    this.users=this.studs.getStudents();
+    //this.users=this.studs.getStudents();
+    this.studs.getStudents().subscribe({
+      next: (data: User[]) => this.users = data,
+      error:err => console.error("Error fetching Students",
+        err),
+      complete:() => console.log("Student data fetch complete!")
+    })
   }
 }
