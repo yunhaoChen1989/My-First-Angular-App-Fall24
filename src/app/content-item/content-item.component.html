@@ -1,1 +1,8 @@
-<p>content-item works!</p>
+<form>
+  <input  [(ngModel)]="userName" name="userName" placeholder="please enter user name"/>
+  <p>the user name you input: {{userName}}</p>
+</form>
+
+<div *ngFor="let u of users">
+  <p>{{u.firstName}}</p>
+</div>
