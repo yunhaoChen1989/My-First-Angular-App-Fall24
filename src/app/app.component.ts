@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ContentCardComponent} from "./content-card/content-card.component";
+import {ContentItemComponent} from "./content-item/content-item.component";
 
 interface IContent{
   id:number,
@@ -11,11 +11,12 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentCardComponent],
+  imports: [RouterOutlet, ContentItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  title:string='';
   individualContentItem: IContent;
   constructor(){
     this.individualContentItem = {
