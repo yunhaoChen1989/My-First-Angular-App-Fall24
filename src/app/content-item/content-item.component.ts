@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {StudentService} from "../services/student.service";
 import {NgForOf} from "@angular/common";
+import {User} from "../share/User";
 
 
 interface IContent{
@@ -11,9 +12,6 @@ interface IContent{
   type:string
 }
 
-interface User{
-id: number, firstName: string, lastName: string, department: string, isAdmin: boolean
-}
 @Component({
   selector: 'app-content-item',
   standalone: true,

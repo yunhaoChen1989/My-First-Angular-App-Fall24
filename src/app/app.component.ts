@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {ContentItemComponent} from "./content-item/content-item.component";
 
 interface IContent{
@@ -11,7 +11,7 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentItemComponent],
+  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,2 +1,10 @@
-<app-content-item [contentItem]="individualContentItem">
-</app-content-item>
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/students" routerLinkActive="active">Student List</a>
+    <a routerLink="/modify-student" routerLinkActive="active">Modify Student</a>
+  </nav>
+</div>
+<div class="app-container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div>

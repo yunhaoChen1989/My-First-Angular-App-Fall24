@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-
+import {User} from "../share/User";
+import {users} from '../mockData/userData';
 @Injectable({
   providedIn: 'root'
 })
-interface User{
-  id: number, firstName: string, lastName: string, department: string, isAdmin: boolean
-}
+
 export class StudentService {
 
+  private userList:User[] = users;
   constructor() { }
   getStudents(): Observable<User[]> {
-    users:User[]=      [{id: 1, firstName: "Matt", lastName: "Haug", department: "Programming", isAdmin: false},
-      {id: 2, firstName: "Darren", lastName: "Takakki", department: "Web Dev", isAdmin: true},
-      {id: 3, firstName: "John", lastName: "Doe", department: "Programming", isAdmin: false},
-      {id: 4, firstName: "Jane", lastName: "Doe", department: "Programming", isAdmin: true}
-  ];
-    return of user;
+    return of (users);
+  }
 
+  getStudentById(id:number):Observable<User|undefined>{
+    const student = this.userList.find(stu=>stu.id===id);
+    return of(student);
   }
 }
