@@ -1,0 +1,13 @@
+<div>
+  <h2>student Details</h2>
+  <p><Strong>ID:</Strong> {{student?.id}}</p>
+  <p><Strong>ID:</Strong> {{student?.firstName}}</p>
+  <p><Strong>ID:</Strong> {{student?.lastName}}</p>
+  <p><Strong>ID:</Strong> {{student?.department}}</p>
+  <p><Strong>ID:</Strong> {{student?.isAdmin ? 'Yes' : 'No'}}</p>
+</div>
+<div>
+  <button (click)="goBackward()" [disabled]="currentIndex===0"> previous </button>
+  <button (click)="goForward()" [disabled]="currentIndex===userList.length - 1"> Next </button>
+  <button (click)="goBack()">Back to Student List</button>
+</div>

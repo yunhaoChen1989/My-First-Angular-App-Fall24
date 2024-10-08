@@ -1,0 +1,13 @@
+<div>
+  <table>
+    <h1>hello</h1>
+    <tr *ngFor="let student of userList"
+    [routerLink]="['/students', student.id]">
+      <td>{{student.id}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.department}}</td>
+      <td>{{student.isAdmin ? 'Yes' : 'No' }}</td>
+    </tr>
+  </table>
+</div>
