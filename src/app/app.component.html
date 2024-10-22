@@ -8,3 +8,23 @@
   <h1>{{title}}</h1>
   <router-outlet></router-outlet>
 </div>
+
+
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <div>
+    <label>Name: </label>
+    <input type="text" id="name" name="name" required [(ngModel)]="user.name" #nameInput = "ngModel" />
+    <div *ngIf="nameInput.invalid && nameInput.touched">
+      <small *ngIf="nameInput.errors?.['required']"> name is required</small>
+    </div>
+  </div>
+  <div>
+    <label>Email: </label>
+    <input type="text" id="email" name="email" required email [(ngModel)]="user.email" #emailInput = "ngModel"/>
+    <div *ngIf="emailInput.invalid && emailInput.touched">
+      <small *ngIf="emailInput.errors?.['required']"> email is required</small>
+      <small *ngIf="emailInput.errors?.['email']"> enter a valid email</small>
+    </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
