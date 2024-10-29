@@ -28,3 +28,92 @@
   </div>
   <button type="submit" [disabled]="userForm.invalid">Submit</button>
 </form>
+
+
+
+<!--reactive form-->
+
+
+<div class="container" >
+  <h3 class="title text-center">My First Reactive Form - "Customer Information !!!"</h3>
+  <br><br>
+  <form [formGroup]="customerForm" (ngSubmit) = "onSubmitActive()">
+    <div class="row">
+      <!-- First Column -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" autocomplete="off" formControlName="firstName">
+          <span class="help-block" *ngIf="!customerForm.get('firstName')?.valid && customerForm.get('firstName')?.touched">Please enter a valid name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" autocomplete="off" formControlName="lastName">
+          <span class="help-block" *ngIf="!customerForm.get('lastName')?.valid && customerForm.get('lastName')?.touched">Please enter a valid name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email1" name="email" class="form-control" autocomplete="off" formControlName="email">
+          <span class="help-block" *ngIf="!customerForm.get('email')?.valid && customerForm.get('email')?.touched">Please enter a valid email</span>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label><br>
+          <div class="form-check form-check-inline">
+            <input type="radio" value="male" name="gender" id="genderMale" class="form-check-input" formControlName="gender">
+            <label for="genderMale" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" value="female" name="gender" id="genderFemale" class="form-check-input" formControlName="gender">
+            <label for="genderFemale" class="form-check-label">Female</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="isMarried">Married</label><br>
+          <div class="form-check">
+            <input type="checkbox" name="isMarried" id="isMarried" class="form-check-input" formControlName="isMarried">
+            <label for="isMarried" class="form-check-label">Yes</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Column -->
+      <div class="col-md-6">
+        <div class="form-group" formGroupName="address" >
+        <div class="form-group" >
+          <label for="country">Country</label>
+          <select id="country" name="country" class="form-control" formControlName="country">
+            <!--<option value="">Select Country</option>-->
+            <option *ngFor="let country of countryList" [value]=country.countryName>{{country.countryName}}</option>
+          </select>
+          <span class="help-block" *ngIf="!customerForm.get('country')?.valid && customerForm.get('country')?.touched">Please enter a valid country</span>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" class="form-control" autocomplete="off" formControlName="city">
+          <span class="help-block" *ngIf="!customerForm.get('city')?.valid && customerForm.get('city')?.touched">Please enter a valid city</span>
+        </div>
+
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input type="text" id="street" name="street" class="form-control" autocomplete="off" formControlName="street">
+          <span class="help-block" *ngIf="!customerForm.get('street')?.valid && customerForm.get('street')?.touched">Please enter a valid street</span>
+        </div>
+
+        <div class="form-group">
+          <label for="pincode">Pin Code</label>
+          <input type="text" id="pincode" name="pincode" class="form-control" autocomplete="off" formControlName="pincode">
+          <span class="help-block" *ngIf="!customerForm.get('pincode')?.valid && customerForm.get('pincode')?.touched">Please enter a valid pincode</span>
+        </div>
+        </div>
+        <div class="form-group mt-4">
+          <button type="submit" class="btn btn-primary w-100" [disabled]="!customerForm.valid" >Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
