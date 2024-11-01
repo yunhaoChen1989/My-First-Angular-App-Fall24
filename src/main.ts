@@ -5,6 +5,9 @@ import {StudentListComponent} from "./app/student-list/student-list.component";
 import {StudentDetailComponent} from "./app/student-detail/student-detail.component";
 import {ModifyStudentComponent} from "./app/modify-student/modify-student.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
+import {HttpClientInMemoryWebApiModule, InMemoryDbService} from "angular-in-memory-web-api";
+import {importProvidersFrom} from "@angular/core";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 
 const routes:Routes=[
   {path:'', redirectTo:'/students', pathMatch:'full'},//default route
@@ -15,4 +18,8 @@ const routes:Routes=[
 ];
 /*bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));*/
-bootstrapApplication(AppComponent, {providers:[provideRouter(routes)]});
+
+bootstrapApplication(AppComponent, {providers:[provideHttpClient(withInterceptorsFromDi()),
+      provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDbService,{delay:1000}))]},
+  );

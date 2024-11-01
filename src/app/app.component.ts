@@ -3,7 +3,8 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {ContentItemComponent} from "./content-item/content-item.component";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
-
+import {HttpClient} from "@angular/common/http";
+import {TodoServiceService} from "./services/todo-service.service";
 
 interface IContent{
   id:number,
@@ -22,8 +23,11 @@ export class AppComponent implements OnInit{
   title:string='';
   individualContentItem: IContent;
   customerForm!: FormGroup;
-  countryList = [{countryName:'USA'},{countryName:'CN'},{countryName:'Canada'},{countryName:'India'}]
-  constructor(){
+  countryList = [{countryName:'USA'},{countryName:'CN'},{countryName:'Canada'},{countryName:'India'}];
+  todo:any = null;
+  constructor(private todoService:TodoServiceService){
+    this.todoService.getData().subscribe(data=>this.todo=data);
+
     this.individualContentItem = {
               id: 1,
               imageUrl: 'https://angular.io/assets/images/logos/angular/angular.png',
