@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError} from "rxjs";
+import {User} from "../share/User";
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,8 @@ export class TodoServiceService {
     return this.http.get(this.url);
   }
   getDataById(id:number=1){
-    return this.http.get(`${this.url}/${id}`)
+    return this.http.get(`api/user`);
+    //return this.http.get(`${this.url}/${id}`)
   }
 
   putData(newData:any){
