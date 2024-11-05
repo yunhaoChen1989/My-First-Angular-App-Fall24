@@ -19,7 +19,7 @@ const routes:Routes=[
 /*bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));*/
 
-bootstrapApplication(AppComponent, {providers:[provideHttpClient(withInterceptorsFromDi()),
+bootstrapApplication(AppComponent, {providers:[provideHttpClient(),
       provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDbService,{delay:1000}))]},
+    importProvidersFrom()]},
   );

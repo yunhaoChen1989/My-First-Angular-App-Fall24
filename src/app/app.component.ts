@@ -26,14 +26,28 @@ export class AppComponent implements OnInit{
   countryList = [{countryName:'USA'},{countryName:'CN'},{countryName:'Canada'},{countryName:'India'}];
   todo:any = null;
   constructor(private todoService:TodoServiceService){
-    this.todoService.getData().subscribe(data=>this.todo=data);
+    this.todoService.getDataById().subscribe(data=>{this.todo=data;     console.log(this.todo)});
 
+    this.todoService.putData({
+      "userId": 1,
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": false
+    }).subscribe(data=>console.log('put',data));
+    this.todoService.postData({
+      "userId": 1,
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": false
+    })
+    this.todoService.deleteData(1).subscribe(data=>console.log('delete',data));
     this.individualContentItem = {
               id: 1,
               imageUrl: 'https://angular.io/assets/images/logos/angular/angular.png',
               body: 'This is the body of the content....',
               type: 'news'
     };
+
   }
   user = {
     name:'',
