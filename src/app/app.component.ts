@@ -2,9 +2,19 @@ import {Component, OnInit} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {ContentItemComponent} from "./content-item/content-item.component";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+import {
+  CurrencyPipe,
+  DatePipe,
+  DecimalPipe, JsonPipe, KeyValuePipe,
+  LowerCasePipe,
+  NgForOf,
+  NgIf,
+  PercentPipe, SlicePipe,
+  UpperCasePipe
+} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {TodoServiceService} from "./services/todo-service.service";
+import {CustomPipePipe} from "../pipes/custom-pipe.pipe";
 
 interface IContent{
   id:number,
@@ -15,7 +25,7 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf],
+  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -25,6 +35,13 @@ export class AppComponent implements OnInit{
   customerForm!: FormGroup;
   countryList = [{countryName:'USA'},{countryName:'CN'},{countryName:'Canada'},{countryName:'India'}];
   todo:any = null;
+  serialNo:number=98.334545;
+  today_date:Date=new Date();
+  percent:number=0.55;
+  price=2345345.2345;
+  words:string='sdfasdfasdfFFFFF';
+  numberArray=[4,5,6,7,3,4,5];
+  userObject = {uName:'stephen', age:17,employed:true, city:'Windsor'}
   constructor(private todoService:TodoServiceService){
     this.todoService.getDataById().subscribe(data=>{this.todo=data;     console.log(this.todo)});
 

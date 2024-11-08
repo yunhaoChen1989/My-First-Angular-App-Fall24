@@ -122,3 +122,31 @@
   <h2>Get Method</h2>
   <div>{{todo}}</div>
 </div>
+
+<div>
+  <h1>Learning pipes</h1>
+  <div>
+    Number: {{serialNo | number:'1.1-2'}}
+  </div>
+  <div>
+    Date: {{today_date | date: 'dd-mm-yy'}}
+  </div>
+  <div>
+    Percentage: {{percent| percent:'2.2'}}
+  </div>
+  <div>
+    Currency: {{price| currency:'CAD':'symbol-narrow':'5.3-4'}}
+  </div>
+
+  <div>
+    UpperCase: {{words| uppercase}}
+  </div>
+
+  <div>
+    LowerCase: {{words| lowercase}}
+  </div>
+  <div>Slice: {{numberArray|slice:2:6 }}</div>
+  <div>Json:{{userObject|json}}</div>
+  <div>Key Value Par: {{userObject|keyvalue|json}}</div>
+  <div>Customer Pipe: {{words | customPipe:'test this thing'}}</div>
+</div>

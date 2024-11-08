@@ -13,7 +13,8 @@ import {InMemoryDataService} from "./app/services/in-memory-data.service";
 const routes:Routes=[
   {path:'', redirectTo:'/students', pathMatch:'full'},//default route
   {path: 'students', component: StudentListComponent},
-  {path: 'students/:id', component: StudentDetailComponent},
+  //{path: 'students/:id', component: StudentDetailComponent},
+  {path: 'students/:id', loadComponent:()=>import('./app/student-detail/student-detail.component').then(m=>m.StudentDetailComponent) },
   {path:'modify-student', component:ModifyStudentComponent},
   {path:'**', component:PageNotFoundComponent},
 ];
