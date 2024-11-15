@@ -150,3 +150,21 @@
   <div>Key Value Par: {{userObject|keyvalue|json}}</div>
   <div>Customer Pipe: {{words | customPipe:'test this thing'}}</div>
 </div>
+
+<div>
+  <h1>Learning Structural directives</h1>
+  <div *ngIf="countryList; then userFound else noUser"> User Found
+
+  </div>
+  <ng-template #userFound>
+    <div *ngFor="let c of countryList">
+      {{c.countryName}}
+      <div [ngSwitch]="c.countryName">
+        <div *ngSwitchCase="'USA'"> IS HERE</div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #noUser>
+    No User
+  </ng-template>
+</div>

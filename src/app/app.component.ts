@@ -8,7 +8,7 @@ import {
   DecimalPipe, JsonPipe, KeyValuePipe,
   LowerCasePipe,
   NgForOf,
-  NgIf,
+  NgIf, NgSwitch, NgSwitchCase,
   PercentPipe, SlicePipe,
   UpperCasePipe
 } from "@angular/common";
@@ -25,7 +25,7 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe],
+  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -41,7 +41,8 @@ export class AppComponent implements OnInit{
   price=2345345.2345;
   words:string='sdfasdfasdfFFFFF';
   numberArray=[4,5,6,7,3,4,5];
-  userObject = {uName:'stephen', age:17,employed:true, city:'Windsor'}
+  userObject = {uName:'stephen', age:17,employed:true, city:'Windsor'};
+
   constructor(private todoService:TodoServiceService){
     this.todoService.getDataById().subscribe(data=>{this.todo=data;     console.log(this.todo)});
 
