@@ -15,6 +15,9 @@ import {
 import {HttpClient} from "@angular/common/http";
 import {TodoServiceService} from "./services/todo-service.service";
 import {CustomPipePipe} from "../pipes/custom-pipe.pipe";
+import {HoverHighLightDirective} from "../directives/hover-high-light.directive";
+import {DisableButtonDirective} from "../directives/disable-button.directive";
+import {TextColorDirective} from "../directives/text-color.directive";
 
 interface IContent{
   id:number,
@@ -25,7 +28,7 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase],
+  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase, HoverHighLightDirective, DisableButtonDirective, TextColorDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -34,6 +37,8 @@ export class AppComponent implements OnInit{
   individualContentItem: IContent;
   customerForm!: FormGroup;
   countryList = [{countryName:'USA'},{countryName:'CN'},{countryName:'Canada'},{countryName:'India'}];
+  markList = [80,60,99,45];
+  marks:number=10;
   todo:any = null;
   serialNo:number=98.334545;
   today_date:Date=new Date();

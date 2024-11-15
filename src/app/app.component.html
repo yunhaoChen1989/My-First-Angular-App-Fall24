@@ -79,6 +79,7 @@
           </div>
         </div>
       </div>
+      <button type="submit" appDisableButton [disableButton]="customerForm"> Submit test custom directive</button>
 
       <!-- Second Column -->
       <div class="col-md-6">
@@ -106,7 +107,7 @@
 
         <div class="form-group">
           <label for="pincode">Pin Code</label>
-          <input type="text" id="pincode" name="pincode" class="form-control" autocomplete="off" formControlName="pincode">
+          <input type="text" id="pincode" name="pincode" class="form-control" autocomplete="off" formControlName="pincode" >
           <span class="help-block" *ngIf="!customerForm.get('pincode')?.valid && customerForm.get('pincode')?.touched">Please enter a valid pincode</span>
         </div>
         </div>
@@ -157,12 +158,17 @@
 
   </div>
   <ng-template #userFound>
-    <div *ngFor="let c of countryList">
+    <div *ngFor="let c of countryList" appHoverHighLight hoverHighlight="lightblue"  >
       {{c.countryName}}
       <div [ngSwitch]="c.countryName">
         <div *ngSwitchCase="'USA'"> IS HERE</div>
       </div>
     </div>
+    <div *ngFor="let m of markList" appTextColor [textColor]="m">
+      {{m}}
+    </div>
+    <input [(ngModel)]="marks" appTextColor [textColor]="marks"/>
+
   </ng-template>
   <ng-template #noUser>
     No User
