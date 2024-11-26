@@ -18,6 +18,9 @@ import {CustomPipePipe} from "../pipes/custom-pipe.pipe";
 import {HoverHighLightDirective} from "../directives/hover-high-light.directive";
 import {DisableButtonDirective} from "../directives/disable-button.directive";
 import {TextColorDirective} from "../directives/text-color.directive";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 interface IContent{
   id:number,
@@ -28,7 +31,7 @@ interface IContent{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase, HoverHighLightDirective, DisableButtonDirective, TextColorDirective],
+  imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase, HoverHighLightDirective, DisableButtonDirective, TextColorDirective, MatToolbar, MatFormField, MatInput, MatLabel],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

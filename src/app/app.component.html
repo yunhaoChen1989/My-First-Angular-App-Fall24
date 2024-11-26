@@ -105,11 +105,15 @@
           <span class="help-block" *ngIf="!customerForm.get('street')?.valid && customerForm.get('street')?.touched">Please enter a valid street</span>
         </div>
 
-        <div class="form-group">
+<!--        <div class="form-group">
           <label for="pincode">Pin Code</label>
           <input type="text" id="pincode" name="pincode" class="form-control" autocomplete="off" formControlName="pincode" >
           <span class="help-block" *ngIf="!customerForm.get('pincode')?.valid && customerForm.get('pincode')?.touched">Please enter a valid pincode</span>
-        </div>
+        </div>-->
+          <mat-form-field appearance="outline" class="form-field" disabled>
+            <mat-label>ID</mat-label>
+            <input matInput type="number" formControlName="pincode" />
+          </mat-form-field>
         </div>
         <div class="form-group mt-4">
           <button type="submit" class="btn btn-primary w-100" [disabled]="!customerForm.valid" >Submit</button>
@@ -173,4 +177,17 @@
   <ng-template #noUser>
     No User
   </ng-template>
+</div>
+<div>
+  <h1>Learn angular material</h1>
+  <!-- New method in app.component.html-->
+  <mat-toolbar color="primary">
+    <span>Student Management System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/students"
+            routerLinkActive="active">Student List</button>
+    <button mat-button routerLink="/modify-student"
+            routerLinkActive="active">Modify Student</button>
+  </mat-toolbar>
+
 </div>
