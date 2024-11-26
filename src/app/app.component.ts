@@ -30,9 +30,9 @@ interface IContent{
 }
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet, ContentItemComponent, RouterLink, RouterLinkActive, FormsModule, NgIf, ReactiveFormsModule, NgForOf, DatePipe, DecimalPipe, PercentPipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, SlicePipe, JsonPipe, KeyValuePipe, CustomPipePipe, NgSwitch, NgSwitchCase, HoverHighLightDirective, DisableButtonDirective, TextColorDirective, MatToolbar, MatFormField, MatInput, MatLabel],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{

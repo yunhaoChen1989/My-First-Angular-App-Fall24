@@ -5,14 +5,13 @@ import {NgForOf} from "@angular/common";
 import {StudentService} from "../services/student.service";
 
 @Component({
-  selector: 'app-student-list',
-  standalone: true,
-  imports: [
-    RouterLink,
-    NgForOf
-  ],
-  templateUrl: './student-list.component.html',
-  styleUrl: './student-list.component.css'
+    selector: 'app-student-list',
+    imports: [
+        RouterLink,
+        NgForOf
+    ],
+    templateUrl: './student-list.component.html',
+    styleUrl: './student-list.component.css'
 })
 export class StudentListComponent implements OnInit{
   userList?:User[];/*= [

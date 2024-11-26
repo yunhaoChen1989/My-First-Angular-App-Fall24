@@ -14,12 +14,12 @@ interface IContent{
 
 @Component({
   selector: 'app-content-item',
-  standalone: true,
   imports: [
     FormsModule,
     NgForOf
   ],
   templateUrl: './content-item.component.html',
+  standalone: true,
   styleUrl: './content-item.component.css'
 })
 export class ContentItemComponent implements OnInit{
